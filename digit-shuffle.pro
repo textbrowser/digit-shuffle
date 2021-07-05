@@ -6,12 +6,6 @@ LANGUAGE        = C++
 QT		+=
 TEMPLATE        = app
 
-+
--
-/
-=
-x
-
 QMAKE_CLEAN	+= DigitShuffle
 QMAKE_CXXFLAGS  += -Wall \
                    -Wcast-align \
