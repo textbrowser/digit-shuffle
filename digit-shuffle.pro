@@ -11,6 +11,7 @@ QMAKE_CXXFLAGS  += -Wall \
                    -Wcast-align \
                    -Wcast-qual \
                    -Wdouble-promotion \
+                   -Werror \
                    -Werror=format-security \
                    -Wextra \
                    -Wfloat-equal \

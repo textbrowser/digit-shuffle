@@ -41,9 +41,6 @@ class digit_shuffle: public QMainWindow
 	       const QVector<int> &rows,
 	       const QVector<int> &solutions)
   {
-    Q_UNUSED(cols);
-    Q_UNUSED(rows);
-
     QVector<int> results;
     const int a = solutions.at(0);
     const int b = solutions.at(1);
@@ -62,6 +59,110 @@ class digit_shuffle: public QMainWindow
 		  for(int x8 = 1; !m_future.isCanceled() && x8 <= 9; x8++)
 		    for(int x9 = 1; !m_future.isCanceled() && x9 <= 9; x9++)
 		      {
+			// Columns!
+
+			int c1 = x1;
+			int c2 = x2;
+			int c3 = x3;
+
+			switch(cols.at(0))
+			  {
+			  case 0:
+			    c1 += x4;
+			    break;
+			  case 1:
+			    c1 -= x4;
+			    break;
+			  case 2:
+			    c1 /= x4;
+			    break;
+			  default:
+			    c1 *= x4;
+			    break;
+			  }
+
+			switch(cols.at(1))
+			  {
+			  case 0:
+			    c1 += x7;
+			    break;
+			  case 1:
+			    c1 -= x7;
+			    break;
+			  case 2:
+			    c1 /= x7;
+			    break;
+			  default:
+			    c1 *= x7;
+			    break;
+			  }
+
+			switch(cols.at(2))
+			  {
+			  case 0:
+			    c2 += x5;
+			    break;
+			  case 1:
+			    c2 -= x5;
+			    break;
+			  case 2:
+			    c2 /= x5;
+			    break;
+			  default:
+			    c2 *= x5;
+			    break;
+			  }
+
+			switch(cols.at(3))
+			  {
+			  case 0:
+			    c2 += x8;
+			    break;
+			  case 1:
+			    c2 -= x8;
+			    break;
+			  case 2:
+			    c2 /= x8;
+			    break;
+			  default:
+			    c2 *= x8;
+			    break;
+			  }
+
+			switch(cols.at(4))
+			  {
+			  case 0:
+			    c3 += x6;
+			    break;
+			  case 1:
+			    c3 -= x6;
+			    break;
+			  case 2:
+			    c3 /= x6;
+			    break;
+			  default:
+			    c3 *= x6;
+			    break;
+			  }
+
+			switch(cols.at(5))
+			  {
+			  case 0:
+			    c3 += x9;
+			    break;
+			  case 1:
+			    c3 -= x9;
+			    break;
+			  case 2:
+			    c3 /= x9;
+			    break;
+			  default:
+			    c3 *= x9;
+			    break;
+			  }
+
+			// Rows!
+
 			int r1 = x1;
 			int r2 = x4;
 			int r3 = x7;
@@ -164,8 +265,36 @@ class digit_shuffle: public QMainWindow
 
 			if(a == r1 &&
 			   b == r2 &&
-			   c == r3)
+			   c == r3 &&
+			   d == c1 &&
+			   e == c2 &&
+			   f == c3)
 			  {
+			    QList<int> list;
+			    QSet<int> set;
+
+			    list << x1
+				 << x2
+				 << x3
+				 << x4
+				 << x5
+				 << x6
+				 << x7
+				 << x8
+				 << x9;
+			    set << x1
+				<< x2
+				<< x3
+				<< x4
+				<< x5
+				<< x6
+				<< x7
+				<< x8
+				<< x9;
+
+			    if(list.size() != set.size())
+			      continue;
+
 			    results << x1
 				    << x2
 				    << x3
@@ -195,12 +324,15 @@ class digit_shuffle: public QMainWindow
      m_ui.x7->setValue(results.value(6));
      m_ui.x8->setValue(results.value(7));
      m_ui.x9->setValue(results.value(8));
+     statusBar()->showMessage("");
    }
 
    void slot_solve(void)
    {
+     statusBar()->showMessage(tr("Canceling current operation..."));
      m_future.cancel();
      m_future.waitForFinished();
+     statusBar()->showMessage(tr("Solving..."));
 
      QVector<int> cols;
      QVector<int> rows;
