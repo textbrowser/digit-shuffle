@@ -41,6 +41,21 @@ class digit_shuffle: public QMainWindow
   QFuture<void> m_future;
   Ui_digit_shuffle m_ui;
 
+  int operator_inverse(int o) const
+  {
+    switch(o)
+      {
+      case 0: // +
+	return 1; // -
+      case 1: // -
+	return 0; // +
+      case 2: // /
+	return 3; // *
+      default: // *
+	return 2; // /
+      }
+  }
+
   void compute(const QVector<int> &cols,
 	       const QVector<int> &rows,
 	       const QVector<int> &solutions)
