@@ -17,6 +17,10 @@ class digit_shuffle: public QMainWindow
   digit_shuffle(void)
   {
     m_ui.setupUi(this);
+    connect(m_ui.reset,
+	    SIGNAL(clicked(void)),
+	    this,
+	    SLOT(slot_reset(void)));
     connect(m_ui.solve,
 	    SIGNAL(clicked(void)),
 	    this,
@@ -318,52 +322,56 @@ class digit_shuffle: public QMainWindow
   }
 
  private slots:
-   void slot_computed(const QVector<int> &results)
-   {
-     m_ui.x1->setValue(results.value(0));
-     m_ui.x2->setValue(results.value(1));
-     m_ui.x3->setValue(results.value(2));
-     m_ui.x4->setValue(results.value(3));
-     m_ui.x5->setValue(results.value(4));
-     m_ui.x6->setValue(results.value(5));
-     m_ui.x7->setValue(results.value(6));
-     m_ui.x8->setValue(results.value(7));
-     m_ui.x9->setValue(results.value(8));
-     statusBar()->showMessage("");
-   }
+  void slot_computed(const QVector<int> &results)
+  {
+    m_ui.x1->setValue(results.value(0));
+    m_ui.x2->setValue(results.value(1));
+    m_ui.x3->setValue(results.value(2));
+    m_ui.x4->setValue(results.value(3));
+    m_ui.x5->setValue(results.value(4));
+    m_ui.x6->setValue(results.value(5));
+    m_ui.x7->setValue(results.value(6));
+    m_ui.x8->setValue(results.value(7));
+    m_ui.x9->setValue(results.value(8));
+    statusBar()->showMessage("");
+  }
 
-   void slot_solve(void)
-   {
-     statusBar()->showMessage(tr("Canceling current operation..."));
-     m_future.cancel();
-     m_future.waitForFinished();
-     statusBar()->showMessage(tr("Solving..."));
+  void slot_reset(void)
+  {
+  }
 
-     QVector<int> cols;
-     QVector<int> rows;
-     QVector<int> solutions;
+  void slot_solve(void)
+  {
+    statusBar()->showMessage(tr("Canceling current operation..."));
+    m_future.cancel();
+    m_future.waitForFinished();
+    statusBar()->showMessage(tr("Solving..."));
 
-     cols << m_ui.c1->currentIndex();
-     cols << m_ui.c2->currentIndex();
-     cols << m_ui.c4->currentIndex();
-     cols << m_ui.c5->currentIndex();
-     cols << m_ui.c7->currentIndex();
-     cols << m_ui.c8->currentIndex();
-     rows << m_ui.r1->currentIndex();
-     rows << m_ui.r2->currentIndex();
-     rows << m_ui.r4->currentIndex();
-     rows << m_ui.r5->currentIndex();
-     rows << m_ui.r7->currentIndex();
-     rows << m_ui.r8->currentIndex();
-     solutions << m_ui.a->value();
-     solutions << m_ui.b->value();
-     solutions << m_ui.c->value();
-     solutions << m_ui.d->value();
-     solutions << m_ui.e->value();
-     solutions << m_ui.f->value();
-     m_future = QtConcurrent::run
-       (this, &digit_shuffle::compute, cols, rows, solutions);
-   }
+    QVector<int> cols;
+    QVector<int> rows;
+    QVector<int> solutions;
+
+    cols << m_ui.c1->currentIndex();
+    cols << m_ui.c2->currentIndex();
+    cols << m_ui.c4->currentIndex();
+    cols << m_ui.c5->currentIndex();
+    cols << m_ui.c7->currentIndex();
+    cols << m_ui.c8->currentIndex();
+    rows << m_ui.r1->currentIndex();
+    rows << m_ui.r2->currentIndex();
+    rows << m_ui.r4->currentIndex();
+    rows << m_ui.r5->currentIndex();
+    rows << m_ui.r7->currentIndex();
+    rows << m_ui.r8->currentIndex();
+    solutions << m_ui.a->value();
+    solutions << m_ui.b->value();
+    solutions << m_ui.c->value();
+    solutions << m_ui.d->value();
+    solutions << m_ui.e->value();
+    solutions << m_ui.f->value();
+    m_future = QtConcurrent::run
+      (this, &digit_shuffle::compute, cols, rows, solutions);
+  }
 
  signals:
   void computed(const QVector<int> &results);
