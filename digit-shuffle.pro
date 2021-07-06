@@ -3,7 +3,7 @@ purge.commands = rm -f *~ && rm -f */*~
 CONFIG		+= qt release warn_on
 DEFINES		+= QT_DEPRECATED_WARNINGS
 LANGUAGE        = C++
-QT		+=
+QT		+= widgets
 TEMPLATE        = app
 
 QMAKE_CLEAN	+= DigitShuffle
