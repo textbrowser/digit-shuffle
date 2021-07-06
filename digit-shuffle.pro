@@ -3,7 +3,7 @@ purge.commands = rm -f *~ && rm -f */*~
 CONFIG		+= qt release warn_on
 DEFINES		+= QT_DEPRECATED_WARNINGS
 LANGUAGE        = C++
-QT		+= widgets
+QT		+= concurrent widgets
 TEMPLATE        = app
 
 QMAKE_CLEAN	+= DigitShuffle
@@ -11,7 +11,6 @@ QMAKE_CXXFLAGS  += -Wall \
                    -Wcast-align \
                    -Wcast-qual \
                    -Wdouble-promotion \
-                   -Werror \
                    -Werror=format-security \
                    -Wextra \
                    -Wfloat-equal \

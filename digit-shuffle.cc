@@ -1,5 +1,6 @@
+// Alexis Megas 2021.
+
 #include <QApplication>
-#include <QtDebug>
 
 #include "digit-shuffle.h"
 
