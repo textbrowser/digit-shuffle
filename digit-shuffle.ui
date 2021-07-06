@@ -101,11 +101,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -136,11 +131,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -152,34 +142,14 @@
         <item row="0" column="5">
          <widget class="QComboBox" name="r3">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>
@@ -205,11 +175,6 @@
           <item>
            <property name="text">
             <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>=</string>
            </property>
           </item>
           <item>
@@ -241,11 +206,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -269,11 +229,6 @@
           <item>
            <property name="text">
             <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>=</string>
            </property>
           </item>
           <item>
@@ -308,11 +263,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -343,11 +293,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -359,34 +304,14 @@
         <item row="2" column="5">
          <widget class="QComboBox" name="r6">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>
@@ -412,11 +337,6 @@
           <item>
            <property name="text">
             <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>=</string>
            </property>
           </item>
           <item>
@@ -448,11 +368,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -476,11 +391,6 @@
           <item>
            <property name="text">
             <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>=</string>
            </property>
           </item>
           <item>
@@ -515,11 +425,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -550,11 +455,6 @@
           </item>
           <item>
            <property name="text">
-            <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>x</string>
            </property>
           </item>
@@ -566,34 +466,14 @@
         <item row="4" column="5">
          <widget class="QComboBox" name="r9">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>
@@ -604,34 +484,14 @@
         <item row="5" column="0">
          <widget class="QComboBox" name="c3">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>
@@ -639,34 +499,14 @@
         <item row="5" column="2">
          <widget class="QComboBox" name="c6">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>
@@ -674,34 +514,14 @@
         <item row="5" column="4">
          <widget class="QComboBox" name="c9">
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <property name="sizeAdjustPolicy">
            <enum>QComboBox::AdjustToContents</enum>
           </property>
           <item>
            <property name="text">
-            <string>+</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>-</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>/</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>=</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>x</string>
            </property>
           </item>
          </widget>

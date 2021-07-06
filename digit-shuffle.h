@@ -37,8 +37,8 @@ class digit_shuffle: public QMainWindow
   QFuture<void> m_future;
   Ui_digit_shuffle m_ui;
 
-  void compute(const QVector<int > &cols,
-	       const QVector<int > &rows,
+  void compute(const QVector<int> &cols,
+	       const QVector<int> &rows,
 	       const QVector<int> &solutions)
   {
     Q_UNUSED(cols);
@@ -62,9 +62,125 @@ class digit_shuffle: public QMainWindow
 		  for(int x8 = 1; !m_future.isCanceled() && x8 <= 9; x8++)
 		    for(int x9 = 1; !m_future.isCanceled() && x9 <= 9; x9++)
 		      {
+			int r1 = x1;
+			int r2 = x4;
+			int r3 = x7;
+
+			switch(rows.at(0))
+			  {
+			  case 0:
+			    r1 += x2;
+			    break;
+			  case 1:
+			    r1 -= x2;
+			    break;
+			  case 2:
+			    r1 /= x2;
+			    break;
+			  default:
+			    r1 *= x2;
+			    break;
+			  }
+
+			switch(rows.at(1))
+			  {
+			  case 0:
+			    r1 += x3;
+			    break;
+			  case 1:
+			    r1 -= x3;
+			    break;
+			  case 2:
+			    r1 /= x3;
+			    break;
+			  default:
+			    r1 *= x3;
+			    break;
+			  }
+
+			switch(rows.at(2))
+			  {
+			  case 0:
+			    r2 += x5;
+			    break;
+			  case 1:
+			    r2 -= x5;
+			    break;
+			  case 2:
+			    r2 /= x5;
+			    break;
+			  default:
+			    r2 *= x5;
+			    break;
+			  }
+
+			switch(rows.at(3))
+			  {
+			  case 0:
+			    r2 += x6;
+			    break;
+			  case 1:
+			    r2 -= x6;
+			    break;
+			  case 2:
+			    r2 /= x6;
+			    break;
+			  default:
+			    r2 *= x6;
+			    break;
+			  }
+
+			switch(rows.at(4))
+			  {
+			  case 0:
+			    r3 += x8;
+			    break;
+			  case 1:
+			    r3 -= x8;
+			    break;
+			  case 2:
+			    r3 /= x8;
+			    break;
+			  default:
+			    r3 *= x8;
+			    break;
+			  }
+
+			switch(rows.at(5))
+			  {
+			  case 0:
+			    r3 += x9;
+			    break;
+			  case 1:
+			    r3 -= x9;
+			    break;
+			  case 2:
+			    r3 /= x9;
+			    break;
+			  default:
+			    r3 *= x9;
+			    break;
+			  }
+
+			if(a == r1 &&
+			   b == r2 &&
+			   c == r3)
+			  {
+			    results << x1
+				    << x2
+				    << x3
+				    << x4
+				    << x5
+				    << x6
+				    << x7
+				    << x8
+				    << x9;
+			    break;
+			  }
 		      }
 
-    emit computed(results);
+    if(!m_future.isCanceled())
+      emit computed(results);
   }
 
  private slots:
