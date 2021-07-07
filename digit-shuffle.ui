@@ -177,6 +177,12 @@
         </item>
         <item row="0" column="6">
          <widget class="QSpinBox" name="a">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
@@ -364,6 +370,12 @@
         </item>
         <item row="2" column="6">
          <widget class="QSpinBox" name="b">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
@@ -551,6 +563,12 @@
         </item>
         <item row="4" column="6">
          <widget class="QSpinBox" name="c">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
@@ -603,6 +621,12 @@
         </item>
         <item row="6" column="0">
          <widget class="QSpinBox" name="d">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
@@ -610,6 +634,12 @@
         </item>
         <item row="6" column="2">
          <widget class="QSpinBox" name="e">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
@@ -617,6 +647,12 @@
         </item>
         <item row="6" column="4">
          <widget class="QSpinBox" name="f">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <number>-999</number>
+          </property>
           <property name="maximum">
            <number>999</number>
           </property>
