@@ -42,6 +42,8 @@ FORMS		= digit-shuffle.ui
 
 HEADERS		= digit-shuffle.h
 
+RESOURCES       = icons.qrc
+
 SOURCES		= digit-shuffle.cc
 
 PROJECTNAME	= DigitShuffle

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+	<file>digit-shuffle.png</file>
+    </qresource>
+</RCC>

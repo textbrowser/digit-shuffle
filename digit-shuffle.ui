@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>DigitShuffle</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/digit-shuffle.png</normaloff>:/digit-shuffle.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -696,7 +700,7 @@
      <x>0</x>
      <y>0</y>
      <width>439</width>
-     <height>30</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -754,6 +758,8 @@
   <tabstop>e</tabstop>
   <tabstop>f</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
