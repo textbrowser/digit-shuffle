@@ -17,6 +17,10 @@ class digit_shuffle: public QMainWindow
   digit_shuffle(void)
   {
     m_ui.setupUi(this);
+    connect(m_ui.action_quit,
+	    SIGNAL(triggered(void)),
+	    this,
+	    SLOT(slot_quit(void)));
     connect(m_ui.reset,
 	    SIGNAL(clicked(void)),
 	    this,
@@ -397,8 +401,20 @@ class digit_shuffle: public QMainWindow
     statusBar()->showMessage("");
   }
 
+  void slot_quit(void)
+  {
+    QApplication::instance()->quit();
+  }
+
   void slot_reset(void)
   {
+    foreach(auto widget, findChildren<QComboBox *> ())
+      if(widget)
+	widget->setCurrentIndex(0);
+
+    foreach(auto widget, findChildren<QSpinBox *> ())
+      if(widget)
+	widget->setValue(0);
   }
 
   void slot_solve(void)
