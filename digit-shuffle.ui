@@ -77,7 +77,14 @@
       <item>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QSpinBox" name="x1"/>
+         <widget class="QSpinBox" name="x1">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
          <widget class="QComboBox" name="r1">
@@ -107,7 +114,14 @@
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="x2"/>
+         <widget class="QSpinBox" name="x2">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="0" column="3">
          <widget class="QComboBox" name="r2">
@@ -137,7 +151,14 @@
          </widget>
         </item>
         <item row="0" column="4">
-         <widget class="QSpinBox" name="x3"/>
+         <widget class="QSpinBox" name="x3">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="0" column="5">
          <widget class="QComboBox" name="r3">
@@ -155,7 +176,11 @@
          </widget>
         </item>
         <item row="0" column="6">
-         <widget class="QSpinBox" name="a"/>
+         <widget class="QSpinBox" name="a">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QComboBox" name="c1">
@@ -239,7 +264,14 @@
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QSpinBox" name="x4"/>
+         <widget class="QSpinBox" name="x4">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="2" column="1">
          <widget class="QComboBox" name="r4">
@@ -269,7 +301,14 @@
          </widget>
         </item>
         <item row="2" column="2">
-         <widget class="QSpinBox" name="x5"/>
+         <widget class="QSpinBox" name="x5">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="2" column="3">
          <widget class="QComboBox" name="r5">
@@ -299,7 +338,14 @@
          </widget>
         </item>
         <item row="2" column="4">
-         <widget class="QSpinBox" name="x6"/>
+         <widget class="QSpinBox" name="x6">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="2" column="5">
          <widget class="QComboBox" name="r6">
@@ -317,7 +363,11 @@
          </widget>
         </item>
         <item row="2" column="6">
-         <widget class="QSpinBox" name="b"/>
+         <widget class="QSpinBox" name="b">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
         <item row="3" column="0">
          <widget class="QComboBox" name="c2">
@@ -401,7 +451,14 @@
          </widget>
         </item>
         <item row="4" column="0">
-         <widget class="QSpinBox" name="x7"/>
+         <widget class="QSpinBox" name="x7">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="4" column="1">
          <widget class="QComboBox" name="r7">
@@ -431,7 +488,14 @@
          </widget>
         </item>
         <item row="4" column="2">
-         <widget class="QSpinBox" name="x8"/>
+         <widget class="QSpinBox" name="x8">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="4" column="3">
          <widget class="QComboBox" name="r8">
@@ -461,7 +525,14 @@
          </widget>
         </item>
         <item row="4" column="4">
-         <widget class="QSpinBox" name="x9"/>
+         <widget class="QSpinBox" name="x9">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
         </item>
         <item row="4" column="5">
          <widget class="QComboBox" name="r9">
@@ -479,7 +550,11 @@
          </widget>
         </item>
         <item row="4" column="6">
-         <widget class="QSpinBox" name="c"/>
+         <widget class="QSpinBox" name="c">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <widget class="QComboBox" name="c3">
@@ -527,13 +602,25 @@
          </widget>
         </item>
         <item row="6" column="0">
-         <widget class="QSpinBox" name="d"/>
+         <widget class="QSpinBox" name="d">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
         <item row="6" column="2">
-         <widget class="QSpinBox" name="e"/>
+         <widget class="QSpinBox" name="e">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
         <item row="6" column="4">
-         <widget class="QSpinBox" name="f"/>
+         <widget class="QSpinBox" name="f">
+          <property name="maximum">
+           <number>999</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -573,7 +660,7 @@
      <x>0</x>
      <y>0</y>
      <width>425</width>
-     <height>30</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

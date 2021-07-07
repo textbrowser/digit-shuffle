@@ -41,7 +41,25 @@ class digit_shuffle: public QMainWindow
   QFuture<void> m_future;
   Ui_digit_shuffle m_ui;
 
-  int operator_inverse(int o) const
+  static int op(const int a, const int b, const int o)
+  {
+    switch(o)
+      {
+      case 0:
+	return a + b;
+      case 1:
+	return a - b;
+      case 2:
+	if(b != 0)
+	  return a / b;
+	else
+	  return a;
+      default:
+	return a * b;
+      }
+  }
+
+  static int op_inverse(const int o)
   {
     switch(o)
       {
@@ -64,271 +82,299 @@ class digit_shuffle: public QMainWindow
     const int a = solutions.at(0);
     const int b = solutions.at(1);
     const int c = solutions.at(2);
+    const int c3 = cols.at(2);
+    const int c4 = cols.at(3);
+    const int c5 = cols.at(4);
+    const int c6 = cols.at(5);
     const int d = solutions.at(3);
     const int e = solutions.at(4);
     const int f = solutions.at(5);
+    const int r1 = rows.at(0);
+    const int r2 = rows.at(1);
+    const int r3 = rows.at(2);
+    const int r4 = rows.at(3);
+    const int r5 = rows.at(4);
+    const int r6 = rows.at(5);
+    int x1 = 1;
+    int x2 = 1;
+    int x3 = 1;
+    int x4 = 1;
+    int x7 = 1;
 
-    for(int x1 = 1; x1 <= 9; x1++)
-      for(int x2 = 1; x2 <= 9; x2++)
-	for(int x3 = 1; x3 <= 9; x3++)
-	  for(int x4 = 1; x4 <= 9; x4++)
-	    for(int x5 = 1; x5 <= 9; x5++)
-	      for(int x6 = 1; x6 <= 9; x6++)
-		for(int x7 = 1; x7 <= 9; x7++)
-		  for(int x8 = 1; x8 <= 9; x8++)
-		    for(int x9 = 1; x9 <= 9; x9++)
-		      {
-			if(m_future.isCanceled())
-			  goto done_label;
+    for(int x5 = 1; x5 <= 9; x5++)
+      for(int x6 = 1; x6 <= 9; x6++)
+	for(int x8 = 1; x8 <= 9; x8++)
+	  for(int x9 = 1; x9 <= 9; x9++)
+	    {
+	      if(m_future.isCanceled())
+		goto done_label;
 
-			// Columns!
+	      x2 = op(e, x8, op_inverse(c4));
+	      x2 = op(x2, x5, op_inverse(c3));
+	      x3 = op(f, x9, op_inverse(c6));
+	      x3 = op(x3, x6, op_inverse(c5));
+	      x1 = op(a, x3, op_inverse(r2));
+	      x1 = op(x1, x2, op_inverse(r1));
+	      x4 = op(b, x6, op_inverse(r4));
+	      x4 = op(x4, x5, op_inverse(r3));
+	      x7 = op(c, x9, op_inverse(r6));
+	      x7 = op(x7, x8, op_inverse(r5));
 
-			int c1 = x1;
-			int c2 = x2;
-			int c3 = x3;
+	      if(x1 <= 0 || x1 > 9 ||
+		 x2 <= 0 || x2 > 9 ||
+		 x3 <= 0 || x3 > 9 ||
+		 x4 <= 0 || x4 > 9 ||
+		 x7 <= 0 || x7 > 9)
+		continue;
 
-			switch(cols.at(0))
-			  {
-			  case 0:
-			    c1 += x4;
-			    break;
-			  case 1:
-			    c1 -= x4;
-			    break;
-			  case 2:
-			    c1 /= x4;
-			    break;
-			  default:
-			    c1 *= x4;
-			    break;
-			  }
+	      // Columns!
 
-			switch(cols.at(1))
-			  {
-			  case 0:
-			    c1 += x7;
-			    break;
-			  case 1:
-			    c1 -= x7;
-			    break;
-			  case 2:
-			    c1 /= x7;
-			    break;
-			  default:
-			    c1 *= x7;
-			    break;
-			  }
+	      int v1 = x1;
+	      int v2 = x2;
+	      int v3 = x3;
 
-			switch(cols.at(2))
-			  {
-			  case 0:
-			    c2 += x5;
-			    break;
-			  case 1:
-			    c2 -= x5;
-			    break;
-			  case 2:
-			    c2 /= x5;
-			    break;
-			  default:
-			    c2 *= x5;
-			    break;
-			  }
+	      switch(cols.at(0))
+		{
+		case 0:
+		  v1 += x4;
+		  break;
+		case 1:
+		  v1 -= x4;
+		  break;
+		case 2:
+		  v1 /= x4;
+		  break;
+		default:
+		  v1 *= x4;
+		  break;
+		}
 
-			switch(cols.at(3))
-			  {
-			  case 0:
-			    c2 += x8;
-			    break;
-			  case 1:
-			    c2 -= x8;
-			    break;
-			  case 2:
-			    c2 /= x8;
-			    break;
-			  default:
-			    c2 *= x8;
-			    break;
-			  }
+	      switch(cols.at(1))
+		{
+		case 0:
+		  v1 += x7;
+		  break;
+		case 1:
+		  v1 -= x7;
+		  break;
+		case 2:
+		  v1 /= x7;
+		  break;
+		default:
+		  v1 *= x7;
+		  break;
+		}
 
-			switch(cols.at(4))
-			  {
-			  case 0:
-			    c3 += x6;
-			    break;
-			  case 1:
-			    c3 -= x6;
-			    break;
-			  case 2:
-			    c3 /= x6;
-			    break;
-			  default:
-			    c3 *= x6;
-			    break;
-			  }
+	      switch(cols.at(2))
+		{
+		case 0:
+		  v2 += x5;
+		  break;
+		case 1:
+		  v2 -= x5;
+		  break;
+		case 2:
+		  v2 /= x5;
+		  break;
+		default:
+		  v2 *= x5;
+		  break;
+		}
 
-			switch(cols.at(5))
-			  {
-			  case 0:
-			    c3 += x9;
-			    break;
-			  case 1:
-			    c3 -= x9;
-			    break;
-			  case 2:
-			    c3 /= x9;
-			    break;
-			  default:
-			    c3 *= x9;
-			    break;
-			  }
+	      switch(cols.at(3))
+		{
+		case 0:
+		  v2 += x8;
+		  break;
+		case 1:
+		  v2 -= x8;
+		  break;
+		case 2:
+		  v2 /= x8;
+		  break;
+		default:
+		 v2 *= x8;
+		  break;
+		}
 
-			// Rows!
+	      switch(cols.at(4))
+		{
+		case 0:
+		  v3 += x6;
+		  break;
+		case 1:
+		  v3 -= x6;
+		  break;
+		case 2:
+		  v3 /= x6;
+		  break;
+		default:
+		  v3 *= x6;
+		  break;
+		}
 
-			int r1 = x1;
-			int r2 = x4;
-			int r3 = x7;
+	      switch(cols.at(5))
+		{
+		case 0:
+		  v3 += x9;
+		  break;
+		case 1:
+		  v3 -= x9;
+		  break;
+		case 2:
+		  v3 /= x9;
+		  break;
+		default:
+		  v3 *= x9;
+		  break;
+		}
 
-			switch(rows.at(0))
-			  {
-			  case 0:
-			    r1 += x2;
-			    break;
-			  case 1:
-			    r1 -= x2;
-			    break;
-			  case 2:
-			    r1 /= x2;
-			    break;
-			  default:
-			    r1 *= x2;
-			    break;
-			  }
+	      // Rows!
 
-			switch(rows.at(1))
-			  {
-			  case 0:
-			    r1 += x3;
-			    break;
-			  case 1:
-			    r1 -= x3;
-			    break;
-			  case 2:
-			    r1 /= x3;
-			    break;
-			  default:
-			    r1 *= x3;
-			    break;
-			  }
+	      int v4 = x1;
+	      int v5 = x4;
+	      int v6 = x7;
 
-			switch(rows.at(2))
-			  {
-			  case 0:
-			    r2 += x5;
-			    break;
-			  case 1:
-			    r2 -= x5;
-			    break;
-			  case 2:
-			    r2 /= x5;
-			    break;
-			  default:
-			    r2 *= x5;
-			    break;
-			  }
+	      switch(rows.at(0))
+		{
+		case 0:
+		  v4 += x2;
+		  break;
+		case 1:
+		  v4 -= x2;
+		  break;
+		case 2:
+		  v4 /= x2;
+		  break;
+		default:
+		  v4 *= x2;
+		  break;
+		}
 
-			switch(rows.at(3))
-			  {
-			  case 0:
-			    r2 += x6;
-			    break;
-			  case 1:
-			    r2 -= x6;
-			    break;
-			  case 2:
-			    r2 /= x6;
-			    break;
-			  default:
-			    r2 *= x6;
-			    break;
-			  }
+	      switch(rows.at(1))
+		{
+		case 0:
+		  v4 += x3;
+		  break;
+		case 1:
+		  v4 -= x3;
+		  break;
+		case 2:
+		  v4 /= x3;
+		  break;
+		default:
+		  v4 *= x3;
+		  break;
+		}
 
-			switch(rows.at(4))
-			  {
-			  case 0:
-			    r3 += x8;
-			    break;
-			  case 1:
-			    r3 -= x8;
-			    break;
-			  case 2:
-			    r3 /= x8;
-			    break;
-			  default:
-			    r3 *= x8;
-			    break;
-			  }
+	      switch(rows.at(2))
+		{
+		case 0:
+		  v5 += x5;
+		  break;
+		case 1:
+		  v5 -= x5;
+		  break;
+		case 2:
+		  v5 /= x5;
+		  break;
+		default:
+		  v5 *= x5;
+		  break;
+		}
 
-			switch(rows.at(5))
-			  {
-			  case 0:
-			    r3 += x9;
-			    break;
-			  case 1:
-			    r3 -= x9;
-			    break;
-			  case 2:
-			    r3 /= x9;
-			    break;
-			  default:
-			    r3 *= x9;
-			    break;
-			  }
+	      switch(rows.at(3))
+		{
+		case 0:
+		  v5 += x6;
+		  break;
+		case 1:
+		  v5 -= x6;
+		  break;
+		case 2:
+		  v5 /= x6;
+		  break;
+		default:
+		  v5 *= x6;
+		  break;
+		}
 
-			if(a == r1 &&
-			   b == r2 &&
-			   c == r3 &&
-			   d == c1 &&
-			   e == c2 &&
-			   f == c3)
-			  {
-			    QList<int> list;
-			    QSet<int> set;
+	      switch(rows.at(4))
+		{
+		case 0:
+		  v6 += x8;
+		  break;
+		case 1:
+		  v6 -= x8;
+		  break;
+		case 2:
+		  v6 /= x8;
+		  break;
+		default:
+		  v6 *= x8;
+		  break;
+		}
 
-			    list << x1
-				 << x2
-				 << x3
-				 << x4
-				 << x5
-				 << x6
-				 << x7
-				 << x8
-				 << x9;
-			    set << x1
-				<< x2
-				<< x3
-				<< x4
-				<< x5
-				<< x6
-				<< x7
-				<< x8
-				<< x9;
+	      switch(rows.at(5))
+		{
+		case 0:
+		  v6 += x9;
+		  break;
+		case 1:
+		  v6 -= x9;
+		  break;
+		case 2:
+		  v6 /= x9;
+		  break;
+		default:
+		  v6 *= x9;
+		  break;
+		}
 
-			    if(list.size() == set.size())
-			      {
-				results << x1
-					<< x2
-					<< x3
-					<< x4
-					<< x5
-					<< x6
-					<< x7
-					<< x8
-					<< x9;
-				goto done_label;
-			      }
-			  }
-		      }
+	      if(a == v4 &&
+		 b == v5 &&
+		 c == v6 &&
+		 d == v1 &&
+		 e == v2 &&
+		 f == v3)
+		{
+		  QList<int> list;
+		  QSet<int> set;
+
+		  list << x1
+		       << x2
+		       << x3
+		       << x4
+		       << x5
+		       << x6
+		       << x7
+		       << x8
+		       << x9;
+		  set << x1
+		      << x2
+		      << x3
+		      << x4
+		      << x5
+		      << x6
+		      << x7
+		      << x8
+		      << x9;
+
+		  if(list.size() == set.size())
+		    {
+		      results << x1
+			      << x2
+			      << x3
+			      << x4
+			      << x5
+			      << x6
+			      << x7
+			      << x8
+			      << x9;
+		      goto done_label;
+		    }
+		}
+	    }
 
   done_label:
 
