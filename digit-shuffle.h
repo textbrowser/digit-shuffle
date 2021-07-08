@@ -398,7 +398,11 @@ class digit_shuffle: public QMainWindow
     m_ui.x7->setValue(results.value(6));
     m_ui.x8->setValue(results.value(7));
     m_ui.x9->setValue(results.value(8));
-    statusBar()->showMessage("");
+
+    if(results.isEmpty())
+      statusBar()->showMessage(tr("A solution does not exist."), 5000);
+    else
+      statusBar()->showMessage("");
   }
 
   void slot_quit(void)
