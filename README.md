@@ -8,5 +8,5 @@ Arrange the digits to solve the puzzle!
     ||   ||   ||
     d    e    f
 
-xi is an integer in {1, ..., 9}.
+xi is an integer in {1, ..., 9}. Digits may not repeat.
 ? represents an operator from the set {+, -, /, *}.
