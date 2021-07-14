@@ -10,3 +10,5 @@ Arrange the digits to solve the puzzle!
 
 xi is an integer in {1, ..., 9}. Digits may not repeat.
 ? represents an operator from the set {+, -, /, *}.
+
+![alt text](https://github.com/textbrowser/digit-shuffle/blob/master/Images/digital-shuff-1.png)
