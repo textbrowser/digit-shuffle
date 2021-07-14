@@ -1,4 +1,4 @@
-Arrange the digits to solve the puzzle!
+The software will arrange the digits and solve the puzzle!
 
     x1 ? x2 ? x3 = a
     ?    ?    ?
@@ -9,6 +9,6 @@ Arrange the digits to solve the puzzle!
     d    e    f
 
 xi is an integer in {1, ..., 9}. Digits may not repeat.
-? represents an operator from the set {+, -, /, *}.
+? represents an operator from the set {+, -, /, \*}.
 
 ![alt text](https://github.com/textbrowser/digit-shuffle/blob/master/Images/digital-shuff-1.png)
