@@ -1,4 +1,4 @@
-// Alexis Megas 2021.
+// Alexis Megas, 2021.
 
 #include <QApplication>
 

@@ -179,19 +179,6 @@
           </item>
          </widget>
         </item>
-        <item row="0" column="6">
-         <widget class="QSpinBox" name="a">
-          <property name="styleSheet">
-           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
-          </property>
-          <property name="minimum">
-           <number>-999</number>
-          </property>
-          <property name="maximum">
-           <number>999</number>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0">
          <widget class="QComboBox" name="c1">
           <property name="sizeAdjustPolicy">
@@ -370,19 +357,6 @@
             <string>=</string>
            </property>
           </item>
-         </widget>
-        </item>
-        <item row="2" column="6">
-         <widget class="QSpinBox" name="b">
-          <property name="styleSheet">
-           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
-          </property>
-          <property name="minimum">
-           <number>-999</number>
-          </property>
-          <property name="maximum">
-           <number>999</number>
-          </property>
          </widget>
         </item>
         <item row="3" column="0">
@@ -565,19 +539,6 @@
           </item>
          </widget>
         </item>
-        <item row="4" column="6">
-         <widget class="QSpinBox" name="c">
-          <property name="styleSheet">
-           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
-          </property>
-          <property name="minimum">
-           <number>-999</number>
-          </property>
-          <property name="maximum">
-           <number>999</number>
-          </property>
-         </widget>
-        </item>
         <item row="5" column="0">
          <widget class="QComboBox" name="c3">
           <property name="currentIndex">
@@ -623,42 +584,81 @@
           </item>
          </widget>
         </item>
-        <item row="6" column="0">
-         <widget class="QSpinBox" name="d">
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="a">
           <property name="styleSheet">
            <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
           </property>
           <property name="minimum">
-           <number>-999</number>
+           <double>-1000.000000000000000</double>
           </property>
           <property name="maximum">
-           <number>999</number>
+           <double>1000.000000000000000</double>
           </property>
          </widget>
         </item>
-        <item row="6" column="2">
-         <widget class="QSpinBox" name="e">
+        <item row="2" column="6">
+         <widget class="QDoubleSpinBox" name="b">
           <property name="styleSheet">
            <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
           </property>
           <property name="minimum">
-           <number>-999</number>
+           <double>-1000.000000000000000</double>
           </property>
           <property name="maximum">
-           <number>999</number>
+           <double>1000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="6">
+         <widget class="QDoubleSpinBox" name="c">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <double>-1000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
           </property>
          </widget>
         </item>
         <item row="6" column="4">
-         <widget class="QSpinBox" name="f">
+         <widget class="QDoubleSpinBox" name="f">
           <property name="styleSheet">
            <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
           </property>
           <property name="minimum">
-           <number>-999</number>
+           <double>-1000.000000000000000</double>
           </property>
           <property name="maximum">
-           <number>999</number>
+           <double>1000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2">
+         <widget class="QDoubleSpinBox" name="e">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <double>-1000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QDoubleSpinBox" name="d">
+          <property name="styleSheet">
+           <string notr="true">QWidget {background-color:rgb(170, 170, 255);}</string>
+          </property>
+          <property name="minimum">
+           <double>-1000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
           </property>
          </widget>
         </item>
@@ -700,7 +700,7 @@
      <x>0</x>
      <y>0</y>
      <width>439</width>
-     <height>22</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

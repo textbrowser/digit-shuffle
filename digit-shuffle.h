@@ -1,4 +1,4 @@
-// Alexis Megas 2021.
+// Alexis Megas, 2021.
 
 #ifndef _digit_shuffle_
 #define _digit_shuffle_
@@ -45,7 +45,7 @@ class digit_shuffle: public QMainWindow
   QFuture<void> m_future;
   Ui_digit_shuffle m_ui;
 
-  static int op(const int a, const int b, const int o)
+  static double op(const double a, const double b, const int o)
   {
     switch(o)
       {
@@ -54,7 +54,7 @@ class digit_shuffle: public QMainWindow
       case 1:
 	return a - b;
       case 2:
-	if(b != 0)
+	if(b < 0.0 || b > 0.0)
 	  return a / b;
 	else
 	  return a;
@@ -78,37 +78,37 @@ class digit_shuffle: public QMainWindow
       }
   }
 
-  void compute(const QVector<int> &cols,
-	       const QVector<int> &rows,
-	       const QVector<int> &solutions)
+  void compute(const QVector<double> &solutions,
+	       const QVector<int> &cols,
+	       const QVector<int> &rows)
   {
     QVector<int> results;
-    const int a = solutions.at(0);
-    const int b = solutions.at(1);
-    const int c = solutions.at(2);
-    const int c3 = cols.at(2);
-    const int c4 = cols.at(3);
-    const int c5 = cols.at(4);
-    const int c6 = cols.at(5);
-    const int d = solutions.at(3);
-    const int e = solutions.at(4);
-    const int f = solutions.at(5);
-    const int r1 = rows.at(0);
-    const int r2 = rows.at(1);
-    const int r3 = rows.at(2);
-    const int r4 = rows.at(3);
-    const int r5 = rows.at(4);
-    const int r6 = rows.at(5);
-    int x1 = 1;
-    int x2 = 1;
-    int x3 = 1;
-    int x4 = 1;
-    int x7 = 1;
+    const auto a = solutions.at(0);
+    const auto b = solutions.at(1);
+    const auto c = solutions.at(2);
+    const auto c3 = cols.at(2);
+    const auto c4 = cols.at(3);
+    const auto c5 = cols.at(4);
+    const auto c6 = cols.at(5);
+    const auto d = solutions.at(3);
+    const auto e = solutions.at(4);
+    const auto f = solutions.at(5);
+    const auto r1 = rows.at(0);
+    const auto r2 = rows.at(1);
+    const auto r3 = rows.at(2);
+    const auto r4 = rows.at(3);
+    const auto r5 = rows.at(4);
+    const auto r6 = rows.at(5);
+    double x1 = 1.0;
+    double x2 = 1.0;
+    double x3 = 1.0;
+    double x4 = 1.0;
+    double x7 = 1.0;
 
-    for(int x5 = 1; x5 <= 9; x5++)
-      for(int x6 = 1; x6 <= 9; x6++)
-	for(int x8 = 1; x8 <= 9; x8++)
-	  for(int x9 = 1; x9 <= 9; x9++)
+    for(double x5 = 1.0; x5 <= 9.0; x5 += 1.0)
+      for(double x6 = 1.0; x6 <= 9.0; x6 += 1.0)
+	for(double x8 = 1.0; x8 <= 9.0; x8 += 1.0)
+	  for(double x9 = 1.0; x9 <= 9.0; x9 += 1.0)
 	    {
 	      if(m_future.isCanceled())
 		goto done_label;
@@ -124,18 +124,18 @@ class digit_shuffle: public QMainWindow
 	      x7 = op(c, x9, op_inverse(r6));
 	      x7 = op(x7, x8, op_inverse(r5));
 
-	      if(x1 <= 0 || x1 > 9 ||
-		 x2 <= 0 || x2 > 9 ||
-		 x3 <= 0 || x3 > 9 ||
-		 x4 <= 0 || x4 > 9 ||
-		 x7 <= 0 || x7 > 9)
+	      if(qFuzzyCompare(x1, 0.0) || x1 < 0.0 || x1 > 9.0 ||
+		 qFuzzyCompare(x2, 0.0) || x2 < 0.0 || x2 > 9.0 ||
+		 qFuzzyCompare(x3, 0.0) || x3 < 0.0 || x3 > 9.0 ||
+		 qFuzzyCompare(x4, 0.0) || x4 < 0.0 || x4 > 9.0 ||
+		 qFuzzyCompare(x7, 0.0) || x7 < 0.0 || x7 > 9.0)
 		continue;
 
 	      // Columns!
 
-	      int v1 = x1;
-	      int v2 = x2;
-	      int v3 = x3;
+	      auto v1 = x1;
+	      auto v2 = x2;
+	      auto v3 = x3;
 
 	      switch(cols.at(0))
 		{
@@ -235,9 +235,9 @@ class digit_shuffle: public QMainWindow
 
 	      // Rows!
 
-	      int v4 = x1;
-	      int v5 = x4;
-	      int v6 = x7;
+	      auto v4 = x1;
+	      auto v5 = x4;
+	      auto v6 = x7;
 
 	      switch(rows.at(0))
 		{
@@ -335,15 +335,15 @@ class digit_shuffle: public QMainWindow
 		  break;
 		}
 
-	      if(a == v4 &&
-		 b == v5 &&
-		 c == v6 &&
-		 d == v1 &&
-		 e == v2 &&
-		 f == v3)
+	      if(!(a < v4 || a > v4) &&
+		 !(b < v5 || b > v5) &&
+		 !(c < v6 || c > v6) &&
+		 !(d < v1 || d > v1) &&
+		 !(e < v2 || e > v2) &&
+		 !(f < v3 || f > v3))
 		{
-		  QList<int> list;
-		  QSet<int> set;
+		  QList<double> list;
+		  QSet<double> set;
 
 		  list << x1
 		       << x2
@@ -366,15 +366,15 @@ class digit_shuffle: public QMainWindow
 
 		  if(list.size() == set.size())
 		    {
-		      results << x1
-			      << x2
-			      << x3
-			      << x4
-			      << x5
-			      << x6
-			      << x7
-			      << x8
-			      << x9;
+		      results << static_cast<int> (x1)
+			      << static_cast<int> (x2)
+			      << static_cast<int> (x3)
+			      << static_cast<int> (x4)
+			      << static_cast<int> (x5)
+			      << static_cast<int> (x6)
+			      << static_cast<int> (x7)
+			      << static_cast<int> (x8)
+			      << static_cast<int> (x9);
 		      goto done_label;
 		    }
 		}
@@ -416,7 +416,7 @@ class digit_shuffle: public QMainWindow
       if(widget)
 	widget->setCurrentIndex(0);
 
-    foreach(auto widget, findChildren<QSpinBox *> ())
+    foreach(auto widget, findChildren<QDoubleSpinBox *> ())
       if(widget)
 	widget->setValue(0);
   }
@@ -428,9 +428,9 @@ class digit_shuffle: public QMainWindow
     m_future.waitForFinished();
     statusBar()->showMessage(tr("Solving..."));
 
+    QVector<double> solutions;
     QVector<int> cols;
     QVector<int> rows;
-    QVector<int> solutions;
 
     cols << m_ui.c1->currentIndex();
     cols << m_ui.c2->currentIndex();
@@ -451,7 +451,7 @@ class digit_shuffle: public QMainWindow
     solutions << m_ui.e->value();
     solutions << m_ui.f->value();
     m_future = QtConcurrent::run
-      (this, &digit_shuffle::compute, cols, rows, solutions);
+      (this, &digit_shuffle::compute, solutions, cols, rows);
   }
 
  signals:
