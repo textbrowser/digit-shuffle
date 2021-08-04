@@ -1,4 +1,4 @@
-The software will arrange the digits and solve the puzzle!
+Provide the operators and the solutions to the equations. The software will discover the variabls x1, ..., x9.
 
     x1 ? x2 ? x3 = a
     ?    ?    ?
