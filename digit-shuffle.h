@@ -4,6 +4,11 @@
 #define _digit_shuffle_
 
 #include <QFuture>
+#ifdef Q_OS_ANDROID
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 1, 0))
+#include <QJniObject>
+#endif
+#endif
 #include <QtConcurrent>
 #include <QtDebug>
 
@@ -408,6 +413,14 @@ class digit_shuffle: public QMainWindow
   void slot_quit(void)
   {
     QApplication::instance()->quit();
+#ifdef Q_OS_ANDROID
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 1, 0))
+    auto activity = QJniObject
+      (QNativeInterface::QAndroidApplication::context());
+
+    activity.callMethod<void> ("finishAndRemoveTask");
+#endif
+#endif
   }
 
   void slot_reset(void)
@@ -450,8 +463,13 @@ class digit_shuffle: public QMainWindow
     solutions << m_ui.d->value();
     solutions << m_ui.e->value();
     solutions << m_ui.f->value();
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     m_future = QtConcurrent::run
       (this, &digit_shuffle::compute, solutions, cols, rows);
+#else
+    m_future = QtConcurrent::run
+      (&digit_shuffle::compute, this, solutions, cols, rows);
+#endif
   }
 
  signals:

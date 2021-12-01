@@ -7,6 +7,8 @@ QT		+= concurrent widgets
 TEMPLATE        = app
 
 QMAKE_CLEAN	+= DigitShuffle
+
+android {
 QMAKE_CXXFLAGS  += -Wall \
                    -Wcast-align \
                    -Wcast-qual \
@@ -14,13 +16,32 @@ QMAKE_CXXFLAGS  += -Wall \
                    -Werror \
                    -Werror=format-security \
                    -Wextra \
-                   -Wfloat-equal \
+                   -Wformat=2 \
+                   -Woverloaded-virtual \
+                   -Wpointer-arith \
+                   -Wstack-protector \
+                   -Wstrict-overflow=1 \
+                   -Wundef \
+                   -Wzero-as-null-pointer-constant \
+                   -fPIE \
+                   -fstack-protector-all \
+                   -fwrapv \
+                   -pedantic \
+                   -std=c++11
+} else {
+QMAKE_CXXFLAGS  += -Wall \
+                   -Wcast-align \
+                   -Wcast-qual \
+                   -Wdouble-promotion \
+                   -Werror \
+                   -Werror=format-security \
+                   -Wextra \
                    -Wformat=2 \
                    -Wno-deprecated-copy \
                    -Woverloaded-virtual \
                    -Wpointer-arith \
                    -Wstack-protector \
-                   -Wstrict-overflow=5 \
+                   -Wstrict-overflow=1 \
                    -Wundef \
                    -Wzero-as-null-pointer-constant \
                    -fPIE \
@@ -30,10 +51,9 @@ QMAKE_CXXFLAGS  += -Wall \
                    -std=c++11
 
 linux-* {
-QMAKE_CXXFLAGS  += -Wconversion \
-                   -Wformat-overflow=2 \
-                   -Wsign-conversion \
+QMAKE_CXXFLAGS  += -Wformat-overflow=2 \
                    -pie
+}
 }
 
 QMAKE_EXTRA_TARGETS = purge
@@ -48,3 +68,18 @@ SOURCES		= digit-shuffle.cc
 
 PROJECTNAME	= DigitShuffle
 TARGET		= DigitShuffle
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/gradle.properties \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat \
+    android/res/values/libs.xml
+
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_PACKAGE_SOURCE_DIR = \
+        $$PWD/android
+}
