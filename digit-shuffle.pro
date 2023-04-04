@@ -56,6 +56,11 @@ QMAKE_CXXFLAGS  += -Wformat-overflow=2 \
 }
 }
 
+greaterThan(QT_MAJOR_VERSION, 5) {
+QMAKE_CXXFLAGS += -std=c++17
+QMAKE_CXXFLAGS -= -std=c++11
+}
+
 QMAKE_EXTRA_TARGETS = purge
 
 FORMS		= digit-shuffle.ui
@@ -69,17 +74,18 @@ SOURCES		= digit-shuffle.cc
 PROJECTNAME	= DigitShuffle
 TARGET		= DigitShuffle
 
-DISTFILES += \
-    android/AndroidManifest.xml \
-    android/build.gradle \
-    android/gradle.properties \
-    android/gradle/wrapper/gradle-wrapper.jar \
-    android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew \
-    android/gradlew.bat \
-    android/res/values/libs.xml
+android {
+DISTFILES += android/AndroidManifest.xml \
+             android/build.gradle \
+             android/gradle.properties \
+             android/gradle/wrapper/gradle-wrapper.jar \
+             android/gradle/wrapper/gradle-wrapper.properties \
+             android/gradlew \
+             android/gradlew.bat \
+             android/res/values/libs.xml
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
+}
 }
