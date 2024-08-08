@@ -88,22 +88,22 @@ class digit_shuffle: public QMainWindow
 	       const QVector<int> &rows)
   {
     QVector<int> results;
-    const auto a = solutions.at(0);
-    const auto b = solutions.at(1);
-    const auto c = solutions.at(2);
-    const auto c3 = cols.at(2);
-    const auto c4 = cols.at(3);
-    const auto c5 = cols.at(4);
-    const auto c6 = cols.at(5);
-    const auto d = solutions.at(3);
-    const auto e = solutions.at(4);
-    const auto f = solutions.at(5);
-    const auto r1 = rows.at(0);
-    const auto r2 = rows.at(1);
-    const auto r3 = rows.at(2);
-    const auto r4 = rows.at(3);
-    const auto r5 = rows.at(4);
-    const auto r6 = rows.at(5);
+    auto const a = solutions.at(0);
+    auto const b = solutions.at(1);
+    auto const c = solutions.at(2);
+    auto const c3 = cols.at(2);
+    auto const c4 = cols.at(3);
+    auto const c5 = cols.at(4);
+    auto const c6 = cols.at(5);
+    auto const d = solutions.at(3);
+    auto const e = solutions.at(4);
+    auto const f = solutions.at(5);
+    auto const r1 = rows.at(0);
+    auto const r2 = rows.at(1);
+    auto const r3 = rows.at(2);
+    auto const r4 = rows.at(3);
+    auto const r5 = rows.at(4);
+    auto const r6 = rows.at(5);
     double x1 = 1.0;
     double x2 = 1.0;
     double x3 = 1.0;
