@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Alexis Megas.
 
 export AA_ENABLEHIGHDPISCALING=1
@@ -9,6 +9,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 export QT_X11_NO_MITSHM=1
 
-if [ -x ./DigitShuffle ]; then
+if [ -x ./DigitShuffle ]
+then
     ./DigitShuffle
 fi
