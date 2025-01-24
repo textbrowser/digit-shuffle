@@ -435,6 +435,10 @@ class digit_shuffle: public QMainWindow
 
     foreach(auto widget, findChildren<QDoubleSpinBox *> ())
       if(widget)
+	widget->setValue(0.0);
+
+    foreach(auto widget, findChildren<QSpinBox *> ())
+      if(widget)
 	widget->setValue(0);
   }
 
