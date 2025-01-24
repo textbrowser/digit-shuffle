@@ -1,4 +1,4 @@
-Provide the operators (?) and the solutions (a, b, ..., f) to the equations.
+Provide the operators (?) and the solutions (a, b, ..., f) in the equations.
 The software will discover the digits x1, ..., x9.
 
     x1 ? x2 ? x3 = a

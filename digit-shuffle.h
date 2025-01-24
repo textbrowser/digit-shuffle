@@ -133,7 +133,11 @@ class digit_shuffle: public QMainWindow
 		 qFuzzyCompare(x2, 0.0) || x2 < 0.0 || x2 > 9.0 ||
 		 qFuzzyCompare(x3, 0.0) || x3 < 0.0 || x3 > 9.0 ||
 		 qFuzzyCompare(x4, 0.0) || x4 < 0.0 || x4 > 9.0 ||
-		 qFuzzyCompare(x7, 0.0) || x7 < 0.0 || x7 > 9.0)
+		 qFuzzyCompare(x5, 0.0) || x5 < 0.0 || x5 > 9.0 ||
+		 qFuzzyCompare(x6, 0.0) || x6 < 0.0 || x6 > 9.0 ||
+		 qFuzzyCompare(x7, 0.0) || x7 < 0.0 || x7 > 9.0 ||
+		 qFuzzyCompare(x8, 0.0) || x8 < 0.0 || x8 > 9.0 ||
+		 qFuzzyCompare(x9, 0.0) || x9 < 0.0 || x9 > 9.0)
 		continue;
 
 	      // Columns!
@@ -436,7 +440,7 @@ class digit_shuffle: public QMainWindow
 
   void slot_solve(void)
   {
-    statusBar()->showMessage(tr("Canceling current operation..."));
+    statusBar()->showMessage(tr("Canceling computations..."));
     m_future.cancel();
     m_future.waitForFinished();
     statusBar()->showMessage(tr("Solving..."));

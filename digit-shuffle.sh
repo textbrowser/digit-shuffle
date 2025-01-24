@@ -12,4 +12,7 @@ export QT_X11_NO_MITSHM=1
 if [ -x ./DigitShuffle ]
 then
     ./DigitShuffle
+else
+    echo "Cannot locate DigitShuffle. Bye!"
+    exit 1
 fi
